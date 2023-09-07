@@ -1,6 +1,7 @@
 [Unit]
 Description=gunicorn daemon
 After=network.target
+
 [Service]
 User=yc-user
 WorkingDirectory=/home/yc-user/infra_sprint1/backend/
