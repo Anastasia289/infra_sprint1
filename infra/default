@@ -3,19 +3,23 @@ server {
 
   location /api/ {
      client_max_body_size 20M;
-     proxy_pass http://127.0.0.1:8080;}
+     proxy_pass http://127.0.0.1:8080;
+  }
 
   location /admin/ {
      client_max_body_size 20M;
-     proxy_pass http://127.0.0.1:8080;}
+     proxy_pass http://127.0.0.1:8080;
+  }
 
   location ~ ^/media/(.+\.(?:gif|jpe?g|png))$ {
-     alias /var/www/kittygram/media/$1;}
+     alias /var/www/kittygram/media/$1;
+  }
 
   location / {
      root /var/www/kittygram;
      index index.html index.htm;
-     try_files $uri /index.html;}
+     try_files $uri /index.html;
+  }
 
      listen 443 ssl; # managed by Certbot
      ssl_certificate /etc/letsencrypt/live/procrastination.hopto.org/fullchain.pem; # managed by Certbot
@@ -31,13 +35,19 @@ server {
 
   listen 80;
   server_name 158.160.15.80 procrastination2.hopto.org;
-    return 404; # managed by Certbot}
+    return 404; # managed by Certbot
+}
 
 server {
   server_name 158.160.15.80 procrastination.hopto.org;
 
-  location /api/ {proxy_pass http://127.0.0.1:8000;}
-  location /admin/ {proxy_pass http://127.0.0.1:8000;}
+  location /api/ {
+     proxy_pass http://127.0.0.1:8000;
+  }
+
+  location /admin/ {
+     proxy_pass http://127.0.0.1:8000;
+  }
   location / {
         root   /var/www/taski;
         index  index.html index.htm;
