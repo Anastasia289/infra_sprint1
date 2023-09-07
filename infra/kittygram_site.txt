@@ -1,0 +1,5 @@
+IP: 158.160.15.80; 
+name_taski: https://procrastination.hopto.org/; 
+name_kittygram: https://procrastination2.hopto.org/; 
+login: admin; 
+password: admin;  
